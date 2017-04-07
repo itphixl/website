@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900')
+
+@font-face
+  font-family 'nexa_bold'
+  src url('../../assets/fonts/nexa_bold-webfont.woff2') format('woff2'),
+       url('../../assets/fonts/nexa_bold-webfont.woff') format('woff')
+  font-weight normal
+  font-style normal
+
+@font-face
+  font-family 'nexa_light';
+  src url('../../assets/fonts/nexa_light-webfont.woff2') format('woff2'),
+       url('../../assets/fonts/nexa_light-webfont.woff') format('woff')
+  font-weight normal
+  font-style normal
+
+renderRobotoBaseRules()
+  font-family 'Roboto'
+  font-style normal
+
+.Roboto
+  &-Light
+    renderRobotoBaseRules()
+    font-weight 300
+
+  &-Regular
+    renderRobotoBaseRules()
+    font-weight 400
+
+  &-Regular-Italic
+    renderRobotoBaseRules()
+    font-weight 400
+    font-style italic
+
+  &-Bold
+    renderRobotoBaseRules()
+    font-weight 700
+
+  &-Black
+    renderRobotoBaseRules()
+    font-weight 900
+
+.Nexa
+  &-Light
+    font-family 'nexa_light'
+
+  &-Bold
+    font-family 'nexa_bold'

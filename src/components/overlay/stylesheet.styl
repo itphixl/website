@@ -1,0 +1,143 @@
+/*
+* UI Overlay
+* author: Aurélien Dupays-Dexemple
+*/
+
+.overlay-container
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  right 0
+  z-index 9999 !important
+  background-color #ffffff
+  overflow-x hidden !important
+  overflow-y auto !important
+
+  .overlay
+    position relative
+    display block
+    width 100%
+    height auto
+    border solid 7px #ffffff
+    overflow hidden !important
+
+    .header
+      position relative
+      display block
+      width 100%
+      height 32px
+      overflow hidden !important
+
+      .icon-box
+        position absolute
+        top 0
+        left 0
+        bottom 0
+        right 0
+        overflow hidden !important
+
+        .icon
+          position absolute
+          top 13px
+          right 13px
+          width 19px
+          height 19px
+          background-position center center
+          background-size 100% 100%
+          background-repeat no-repeat !important
+          overflow hidden !important
+
+          a
+            display block
+            width 100%
+            height 100%
+
+    .overlay-content
+      position relative
+      display block
+      margin-top 12px
+      width 100%
+      height auto
+      overflow hidden !important
+
+    .footer
+      position relative
+      display block
+      width 100%
+      height auto
+      padding-top 22px
+      padding-bottom 10px
+      overflow hidden !important
+
+      .gallery-navigation-box
+        position relative
+        display block
+        width 100%
+        height 42px
+        overflow hidden !important
+
+        .global-navigation-container
+          position relative
+          display table
+          table-layout fixed !important
+          width 100%
+          height 42px
+          overflow hidden !important
+
+          .gallery-navigation-content
+            position relative
+            display table-cell
+            width auto
+            height 100%
+            vertical-align middle !important
+            overflow hidden !important
+
+            &:first-of-type
+              border-right solid 1px #ffffff
+
+            span
+              display block
+              width 100%
+              height auto
+              color #ffffff
+              font-size 12px
+
+            .gallery-navigation-link-left
+              text-align right
+              padding-right 14px
+
+            .gallery-navigation-link-right
+              text-align left
+              padding-left 14px
+
+        .back-to-top-button
+          position absolute
+          top 0
+          right 8px
+          bottom 0
+          margin auto 0
+          width 19px
+          height 14px
+          background-position center center
+          background-size 100% 100%
+          background-repeat no-repeat !important
+          overflow hidden !important
+          cursor pointer !important
+
+          &:focus
+            outline 0 !important
+
+      .goback-to-gallery-box
+        position relative
+        padding-top 22px
+        display table
+        table-layout fixed !important
+        width auto
+        margin 0 auto
+        overflow hidden !important
+
+        span
+          color #303030
+          font-size 17px
+          line-height 20px

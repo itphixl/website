@@ -1,0 +1,105 @@
+{
+  "name": "phixl-website",
+  "version": "14.6.0",
+  "description": "Website of PhiXL",
+  "keywords": [
+    "Phixl",
+    "Digital",
+    "Agency"
+  ],
+  "author": "Phixl <contact@phixl.fr>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itphixl/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itphixl/website/issues"
+  },
+  "homepage": "https://github.com/itphixl/website#readme",
+  "scripts": {
+    "dev:start": "concurrently --kill-others \"npm run dev:webpack-server\" \"npm run dev:server\" ",
+    "dev:webpack-server": "better-npm-run dev:webpack-server",
+    "dev:server": "better-npm-run dev:server"
+  },
+  "betterScripts": {
+    "dev:webpack-server": {
+      "command": "babel-node ./webpack/dev.server.js",
+      "env": {
+        "NODE_PATH": "./webpack",
+        "NODE_ENV": "development"
+      }
+    },
+    "dev:server": {
+      "command": "nodemon ./src/server.js --exec babel-node",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-airbnb": "^2.2.3",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "better-npm-run": "0.0.15",
+    "chalk": "^1.1.3",
+    "classnames": "^2.2.5",
+    "concurrently": "^3.4.0",
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "morgan": "^1.8.1",
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-flexbox-grid": "^1.0.2",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
+    "react-sidebar": "^2.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-loader": "^6.4.1",
+    "css-loader": "^0.28.0",
+    "enzyme": "^2.8.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "image-webpack-loader": "^3.3.0",
+    "json-loader": "^0.5.4",
+    "nib": "^1.1.2",
+    "node-sass": "^4.5.2",
+    "pixrem": "^3.0.2",
+    "pleeease-filters": "^3.0.1",
+    "postcss": "^5.2.16",
+    "postcss-calc": "^5.3.1",
+    "postcss-color-function": "^3.0.0",
+    "postcss-custom-media": "^5.0.1",
+    "postcss-custom-properties": "^5.0.2",
+    "postcss-custom-selectors": "^3.0.0",
+    "postcss-flexbugs-fixes": "^2.1.0",
+    "postcss-global-import": "^1.0.0",
+    "postcss-import": "^9.1.0",
+    "postcss-loader": "^1.3.3",
+    "postcss-media-minmax": "^2.1.2",
+    "postcss-nested": "^1.0.0",
+    "postcss-nesting": "^2.3.1",
+    "postcss-selector-matches": "^2.0.5",
+    "postcss-selector-not": "^2.0.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.3",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.18.0"
+  }
+}
