@@ -27,7 +27,7 @@ sudo npm run dev:start
 To deploy the project make the command
 
 ```
-sudo npm prod:init
+sudo npm run prod:init
 ```
 
 ## Version
