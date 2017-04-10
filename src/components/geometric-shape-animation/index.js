@@ -18,20 +18,7 @@ export default class GeometricShapeAnimation extends React.Component {
     super(props);
 
     this.WebGLAssets = {
-      sizes: {
-        Smartphone: {
-          width: window.innerWidth - (7 * 2),
-          height: 274
-        },
-        Tablet: {
-          width: window.innerWidth - (30 * 2),
-          height: 512
-        },
-        Desktop: {
-          width: window.innerWidth,
-          height: 200
-        }
-      },
+      sizes: null,
       framerate: 1000 / 60,
       camera: null,
       scene: null,
@@ -49,6 +36,39 @@ export default class GeometricShapeAnimation extends React.Component {
         color: '#77FCAC'
       }
     };
+  }
+
+  updateSizes () {
+    this.WebGLAssets.sizes = {
+      Smartphone: {
+        width: window.innerWidth - (7 * 2),
+        height: 274
+      },
+      Tablet: {
+        width: window.innerWidth - (30 * 2),
+        height: 512
+      },
+      Desktop: {
+        width: window.innerWidth,
+        height: 200
+      }
+    }
+  }
+
+  updateCanvas() {
+    const {camera, renderer, sizes} = this.WebGLAssets;
+
+    const {deviceType} = this.props;
+    const sceneSizes = sizes[deviceType];
+
+    camera.aspect = sceneSizes.width / sceneSizes.height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(sceneSizes.width, sceneSizes.height);
+
+    this.WebGLAssets.renderInterval = window.setInterval(() => {
+      this.updateScene();
+    });
   }
 
   updateParticles() {
@@ -75,10 +95,6 @@ export default class GeometricShapeAnimation extends React.Component {
 
     this.updateParticles();
     renderer.render(scene, camera);
-
-    this.WebGLAssets.renderInterval = window.setInterval(() => {
-      this.updateScene();
-    });
   }
 
   renderParticles() {
@@ -134,12 +150,26 @@ export default class GeometricShapeAnimation extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    this.updateCanvas();
+  }
+
+  componentWillUpdate() {
+    this.updateSizes();
+    window.clearInterval(this.WebGLAssets.renderInterval);
+  }
+
+  componentWillMount() {
+    this.updateSizes();
+    window.clearInterval(this.WebGLAssets.renderInterval);
+  }
+
   componentDidMount() {
     this.renderScene();
   }
 
   shouldComponentUpdate(nextProps) {
-    return false;
+    return nextProps.deviceType !== this.props.deviceType;
   }
 
   render() {

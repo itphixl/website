@@ -24,19 +24,31 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {navigationIsOpen: false, pageScrollTop: 0};
+    this.state = {
+      navigationIsOpen: false,
+      navigationCloseFromButton: false
+    };
   }
 
   openNavigation(isOpen) {
-    this.setState({navigationIsOpen: isOpen});
+    this.setState({
+      navigationIsOpen: isOpen,
+      navigationCloseFromButton: false
+    });
   }
 
-  closeNaviation() {
-    this.setState({navigationIsOpen: false});
+  closeNavigation() {
+    this.setState({
+      navigationIsOpen: false,
+      navigationCloseFromButton: true
+    });
   }
 
   onSetSidebarOpen(isOpen) {
-    this.setState({navigationIsOpen: isOpen});
+    this.setState({
+      navigationIsOpen: isOpen,
+      navigationCloseFromButton: false
+    });
   }
 
   getNavigationWidth() {
@@ -51,7 +63,7 @@ export default class App extends React.Component {
       <Sidebar
         sidebar={(
           <Navigation
-            closeAction={() => {this.closeNaviation()}}
+            closeAction={() => {this.closeNavigation()}}
           />
         )}
         open={state.navigationIsOpen}
@@ -68,7 +80,8 @@ export default class App extends React.Component {
             <Route exact path={match.url} render={() => (
               <Page
                 section='intro'
-                navigationIsOpen={this.state.navigationIsOpen}
+                navigationIsOpen={state.navigationIsOpen}
+                navigationCloseFromButton={state.navigationCloseFromButton}
                 openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}}
               />
             )} />
@@ -77,7 +90,8 @@ export default class App extends React.Component {
                 sections.indexOf(match.params.section) !== -1 ?
                 <Page
                   section={match.params.section}
-                  navigationIsOpen={this.state.navigationIsOpen}
+                  navigationIsOpen={state.navigationIsOpen}
+                  navigationCloseFromButton={state.navigationCloseFromButton}
                   openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}}
                 /> :
                 <NoMatch />

@@ -75,7 +75,7 @@ export default class Page extends React.Component {
     if (nextProps.section !== this.props.section) {
       shouldUpdate = true;
     }
-    else if (nextProps.section === this.props.section && this.props.navigationIsOpen) {
+    else if (nextProps.section === this.props.section && this.props.navigationIsOpen && !nextProps.navigationCloseFromButton) {
       shouldUpdate = (this.refs['page-container-div'].scrollTop !== this.refs[nextProps.section].offsetTop) ;
     }
     else if (nextState.deviceType !== this.state.deviceType) {
@@ -255,5 +255,6 @@ export default class Page extends React.Component {
 Page.propTypes = {
   section: PropTypes.string.isRequired,
   navigationIsOpen: PropTypes.bool.isRequired,
+  navigationCloseFromButton: PropTypes.bool.isRequired,
   openNavigationAction: PropTypes.func.isRequired
 };
