@@ -1,5 +1,8 @@
 
 import BTXParis                                   from '../components/btx-paris';
+import Loveforlivres                              from '../components/loveforlivres';
+import Occabike                                   from '../components/occabike';
+import CGFFLP                                     from '../components/cgf-future-leaders-programme';
 
 import btxparisCover                              from '../assets/images/btxparis-cover.jpg';
 import loveforlivresCover                         from '../assets/images/loveforlivres-cover.jpg';
@@ -23,7 +26,7 @@ const projects = [
     cover: loveforlivresCover,
     color: '',
     link: '',
-    component: null
+    component: Loveforlivres
   },
   {
     id: 'occabike',
@@ -32,7 +35,7 @@ const projects = [
     cover: occabikeCover,
     color: '',
     link: '',
-    component: null
+    component: Occabike
   },
   {
     id: 'cgf-future-leaders-programme',
@@ -41,7 +44,7 @@ const projects = [
     cover: cgfFLPCover,
     color: '',
     link: '',
-    component: null
+    component: CGFFLP
   }
 ];
 

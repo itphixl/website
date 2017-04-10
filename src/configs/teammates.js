@@ -13,8 +13,8 @@ const teammates = [
       height: 24
     },
     nameBrandSizesTablet: {
-      width: 0,
-      height: 0
+      width: 192,
+      height: 52
     },
     nameBrandSizesDesktop: {
       width: 0,
@@ -32,8 +32,8 @@ const teammates = [
       height: 24
     },
     nameBrandSizesTablet: {
-      width: 0,
-      height: 0
+      width: 222,
+      height: 52
     },
     nameBrandSizesDesktop: {
       width: 0,
@@ -51,8 +51,8 @@ const teammates = [
       height: 24
     },
     nameBrandSizesTablet: {
-      width: 0,
-      height: 0
+      width: 264,
+      height: 52
     },
     nameBrandSizesDesktop: {
       width: 0,
@@ -70,8 +70,8 @@ const teammates = [
       height: 16
     },
     nameBrandSizesTablet: {
-      width: 0,
-      height: 0
+      width: 90,
+      height: 36
     },
     nameBrandSizesDesktop: {
       width: 0,

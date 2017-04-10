@@ -44,12 +44,21 @@
         &:focus
           outline 0 !important
 
+        @media only screen and (min-width: 768px)
+          width 46px
+          height 46px
+          margin-top 46px
+          margin-right 46px
+
     .items
       position relative
       display block
       width 100%
       height auto
       overflow hidden !important
+
+      @media only screen and (min-width: 768px)
+        margin-top 64px
 
       .item
         position relative
@@ -67,3 +76,8 @@
           font-size 15px
           padding-left 20px
           overflow hidden !important
+
+          @media only screen and (min-width: 768px)
+            font-size 36px
+            line-height 46px
+            padding-left 46px

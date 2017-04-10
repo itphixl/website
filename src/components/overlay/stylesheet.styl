@@ -22,12 +22,18 @@
     border solid 7px #ffffff
     overflow hidden !important
 
+    @media only screen and (min-width: 768px)
+      border solid 30px #ffffff
+
     .header
       position relative
       display block
       width 100%
       height 32px
       overflow hidden !important
+
+      @media only screen and (min-width: 768px)
+        height 66px
 
       .icon-box
         position absolute
@@ -48,6 +54,12 @@
           background-repeat no-repeat !important
           overflow hidden !important
 
+          @media only screen and (min-width: 768px)
+            top 18px
+            right 18px
+            width 46px
+            height 46px
+
           a
             display block
             width 100%
@@ -56,7 +68,7 @@
     .overlay-content
       position relative
       display block
-      margin-top 12px
+      margin-top 24px
       width 100%
       height auto
       overflow hidden !important
@@ -70,12 +82,19 @@
       padding-bottom 10px
       overflow hidden !important
 
+      @media only screen and (min-width: 768px)
+        padding-top 48px
+        padding-bottom 52px
+
       .gallery-navigation-box
         position relative
         display block
         width 100%
         height 42px
         overflow hidden !important
+
+        @media only screen and (min-width: 768px)
+          height 100px
 
         .global-navigation-container
           position relative
@@ -84,6 +103,9 @@
           width 100%
           height 42px
           overflow hidden !important
+
+          @media only screen and (min-width: 768px)
+            height 100px
 
           .gallery-navigation-content
             position relative
@@ -103,13 +125,22 @@
               color #ffffff
               font-size 12px
 
+              @media only screen and (min-width: 768px)
+                font-size 30px
+
             .gallery-navigation-link-left
               text-align right
               padding-right 14px
 
+              @media only screen and (min-width: 768px)
+                padding-right 34px
+
             .gallery-navigation-link-right
               text-align left
               padding-left 14px
+
+              @media only screen and (min-width: 768px)
+                padding-left 34px
 
         .back-to-top-button
           position absolute
@@ -128,6 +159,10 @@
           &:focus
             outline 0 !important
 
+          @media only screen and (min-width: 768px)
+            width 46px
+            height 34px
+
       .goback-to-gallery-box
         position relative
         padding-top 22px
@@ -137,7 +172,14 @@
         margin 0 auto
         overflow hidden !important
 
+        @media only screen and (min-width: 768px)
+          padding-top 48px
+
         span
           color #303030
           font-size 17px
           line-height 20px
+
+          @media only screen and (min-width: 768px)
+            font-size 40px
+            line-height 46px

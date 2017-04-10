@@ -22,6 +22,12 @@ import {teammates, projects, links}     from '../../configs';
 
 export default class Page extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {deviceType: 'Smartphone'};
+  }
+
   setScrolltop() {
     const {section} = this.props;
 
@@ -31,16 +37,36 @@ export default class Page extends React.Component {
     this.refs['page-container-div'].scrollTop = scrollTop;
   }
 
+  setDeviceType() {
+    var deviceType = 'Smartphone';
+
+    if (window.innerWidth >= 768) {
+      deviceType = window.innerWidth < 1200 ? 'Tablet' : 'Desktop';
+    }
+
+    this.setState({deviceType: deviceType});
+  }
+
+  windowDidResized() {
+    this.setDeviceType();
+  }
+
   componentDidUpdate() {
     this.setScrolltop();
     this.props.openNavigationAction(false);
   }
 
+  componentWillMount() {
+    this.setDeviceType();
+  }
+
   componentDidMount() {
+    window.addEventListener('resize', (e) => {this.windowDidResized()}, false);
+
     this.setScrolltop();
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps, nextState) {
     var shouldUpdate = false;
 
     if (nextProps.section !== this.props.section) {
@@ -49,11 +75,16 @@ export default class Page extends React.Component {
     else if (nextProps.section === this.props.section && this.props.navigationIsOpen) {
       shouldUpdate = (this.refs['page-container-div'].scrollTop !== this.refs[nextProps.section].offsetTop) ;
     }
+    else if (nextState.deviceType !== this.state.deviceType) {
+      shouldUpdate = true;
+    }
 
     return shouldUpdate;
   }
 
   render() {
+    const {deviceType} = this.state;
+
     return (
       <div className='page-container' ref='page-container-div'>
         <div className='page' ref='page-div'>
@@ -112,19 +143,18 @@ export default class Page extends React.Component {
               {'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.through the cites of the word in classical literature, discovered the undoubtable source.'}
             </p>
 
-            <div className='underline' />
+            <div className={classnames('underline', 'last-underline')} />
 
             <div className='team'>
               <Grid fluid>
                 {
                   teammates.map((teammate, key) => {
-                    // TODO: develop function for select the good size in function of the screen
                     return (
                       <Teammate
                         key={key}
                         shape={teammate.shape}
                         nameBrandSrc={teammate.nameBrandSrc}
-                        nameBrandSizes={teammate.nameBrandSizesSmartphone}
+                        nameBrandSizes={teammate[`nameBrandSizes${deviceType}`]}
                         job={teammate.job}
                         tagline={teammate.tagline}
                         linkedinLink={teammate.linkedinLink}

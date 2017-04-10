@@ -40,7 +40,7 @@ export default class App extends React.Component {
   }
 
   getNavigationWidth() {
-    return window.innerWidth < 768 ? window.innerWidth * 0.5 : window.innerWidth * 0.3;
+    return window.innerWidth < 1200 ? window.innerWidth * 0.5 : window.innerWidth * 0.3;
   }
 
   render() {

@@ -123,7 +123,7 @@ export default class BTXParis extends React.Component {
 
         <div className='forth-screen-box'>
           <div className='infos-box'>
-            <span className={classnames('Nexa-Bold', 'title')}>
+            <span className={classnames('Nexa-Bold', 'title')} style={{borderColor: projectColor}}>
               {'Lorem Ipsum'}
             </span>
 
