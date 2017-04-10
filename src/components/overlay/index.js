@@ -7,6 +7,8 @@ import classnames                       from 'classnames';
 import _                                from 'lodash';
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
+
 import {Link}                           from 'react-router-dom';
 import {Grid, Row, Col}                 from 'react-flexbox-grid';
 
@@ -103,5 +105,5 @@ export default class Overlay extends React.Component {
 }
 
 Overlay.propTypes = {
-  target: React.PropTypes.objectOf(React.PropTypes.string)
+  target: PropTypes.objectOf(PropTypes.string)
 }

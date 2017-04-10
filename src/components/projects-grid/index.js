@@ -6,6 +6,7 @@
 import classnames                       from 'classnames';
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
 import {Link}                           from 'react-router-dom';
 import {Grid, Row, Col}                 from 'react-flexbox-grid';
 
@@ -95,7 +96,7 @@ export default class ProjectsGrid extends React.Component {
 }
 
 ProjectsGrid.propTypes = {
-  projects: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  numberByRow: React.PropTypes.number.isRequired,
-  baseRoute: React.PropTypes.string.isRequired
+  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
+  numberByRow: PropTypes.number.isRequired,
+  baseRoute: PropTypes.string.isRequired
 };

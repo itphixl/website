@@ -1,5 +1,6 @@
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
 
 export default class HTML extends React.Component {
 
@@ -48,5 +49,5 @@ export default class HTML extends React.Component {
 }
 
 HTML.propTypes = {
-  bundle: React.PropTypes.object.isRequired
+  bundle: PropTypes.object.isRequired
 };

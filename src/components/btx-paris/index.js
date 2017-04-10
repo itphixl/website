@@ -6,6 +6,8 @@
 import classnames                       from 'classnames';
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
+
 import {Grid, Row, Col}                 from 'react-flexbox-grid';
 
 import stylesheet                       from './stylesheet.styl';
@@ -154,6 +156,6 @@ export default class BTXParis extends React.Component {
 }
 
 BTXParis.propTypes = {
-  projectLink: React.PropTypes.string.isRequired,
-  projectColor: React.PropTypes.string.isRequired
+  projectLink: PropTypes.string.isRequired,
+  projectColor: PropTypes.string.isRequired
 };

@@ -7,6 +7,7 @@
 import classnames                       from 'classnames';
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
 import {Row, Col}                       from 'react-flexbox-grid';
 
 import stylesheet                       from './stylesheet.styl';
@@ -76,11 +77,11 @@ export default class Teammate extends React.Component {
 }
 
 Teammate.propTypes = {
-  shape: React.PropTypes.string.isRequired,
-  nameBrandSrc: React.PropTypes.string.isRequired,
-  nameBrandSizes: React.PropTypes.objectOf(React.PropTypes.number).isRequired,
-  job: React.PropTypes.string.isRequired,
-  tagline: React.PropTypes.string.isRequired,
-  linkedinLink: React.PropTypes.string.isRequired,
-  inverted: React.PropTypes.bool.isRequired
+  shape: PropTypes.string.isRequired,
+  nameBrandSrc: PropTypes.string.isRequired,
+  nameBrandSizes: PropTypes.objectOf(PropTypes.number).isRequired,
+  job: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+  linkedinLink: PropTypes.string.isRequired,
+  inverted: PropTypes.bool.isRequired
 };

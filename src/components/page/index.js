@@ -6,9 +6,12 @@
 import classnames                       from 'classnames';
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
+
 import {Link}                           from 'react-router-dom';
 import {Grid, Row, Col}                 from 'react-flexbox-grid';
 
+import GeometricShapeAnimation          from '../geometric-shape-animation';
 import ProjectsGrid                     from '../projects-grid';
 import Teammate                         from '../teammate';
 
@@ -103,6 +106,12 @@ export default class Page extends React.Component {
           </header>
 
           <section className='intro' ref='intro'>
+            <div className='webgl-box'>
+              <GeometricShapeAnimation
+                deviceType={deviceType}
+              />
+            </div>
+
             <div className='logo-box'>
               <div
                 className='logo'
@@ -244,7 +253,7 @@ export default class Page extends React.Component {
 }
 
 Page.propTypes = {
-  section: React.PropTypes.string.isRequired,
-  navigationIsOpen: React.PropTypes.bool.isRequired,
-  openNavigationAction: React.PropTypes.func.isRequired
+  section: PropTypes.string.isRequired,
+  navigationIsOpen: PropTypes.bool.isRequired,
+  openNavigationAction: PropTypes.func.isRequired
 };

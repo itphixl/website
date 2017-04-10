@@ -6,6 +6,7 @@
 import classnames                       from 'classnames';
 
 import React                            from 'react';
+import PropTypes                        from 'prop-types';
 import {Link}                           from 'react-router-dom';
 
 import stylesheet                       from './stylesheet.styl';
@@ -67,5 +68,5 @@ export default class Navigation extends React.Component {
 }
 
 Navigation.propTypes = {
-  closeAction: React.PropTypes.func.isRequired
+  closeAction: PropTypes.func.isRequired
 };
