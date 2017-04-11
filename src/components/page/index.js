@@ -98,10 +98,14 @@ export default class Page extends React.Component {
                 href='#'
                 onClick={(e) => {e.preventDefault(); this.props.openNavigationAction(true)}}
                 className='icon'
-                style={{
-                  backgroundImage: `url(${burgerIcon})`
-                }}
-              />
+              >
+                <span
+                  className='img'
+                  style={{
+                    backgroundImage: `url(${burgerIcon})`
+                  }}
+                />
+              </a>
             </div>
           </header>
 

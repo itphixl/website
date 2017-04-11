@@ -43,25 +43,45 @@
         overflow hidden !important
 
         .icon
-          position absolute
-          top 8px
-          right 8px
-          width 25px
-          height 13px
-          background-position center center
-          background-size 100% 100%
-          background-repeat no-repeat !important
+          position fixed
+          top 20px
+          right 20px
+
+          width 40px
+          height 40px
+          border-radius 50%
+          background-color rgba(255, 255, 255, 0.9)
           overflow hidden !important
+          z-index 4 !important
           cursor pointer !important
 
           &:focus
             outline 0 !important
 
           @media only screen and (min-width: 768px)
-            top 40px
-            right 40px
-            width 50px
-            height 26px
+            top 60px
+            right 60px
+            width 80px
+            height 80px
+
+          .img
+            position absolute
+            top 0
+            left 0
+            bottom 0
+            right 0
+            margin auto
+            width 25px
+            height 13px
+            background-position center center
+            background-size 100% 100%
+            background-repeat no-repeat !important
+            overflow hidden !important
+
+            @media only screen and (min-width: 768px)
+              width 50px
+              height 26px
+
 
     .intro
       position relative
