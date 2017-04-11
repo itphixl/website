@@ -8,8 +8,7 @@ import classnames                       from 'classnames';
 import React                            from 'react';
 import PropTypes                        from 'prop-types';
 
-// TODO: to update when three js is implemented in es6
-var THREE                               = require('three');
+import * as THREE                       from 'three';
 
 import stylesheet                       from './stylesheet.styl'
 
@@ -137,7 +136,7 @@ export default class GeometricShapeAnimation extends React.Component {
 
     WebGLAssets.scene.add(WebGLAssets.camera);
 
-    WebGLAssets.renderer = (window.WebGLRenderingContext ? new THREE.WebGLRenderer() : new THREE.CanvasRenderer());
+    WebGLAssets.renderer = (window.WebGLRenderingContext ? new THREE.WebGLRenderer({antialias: true}) : new THREE.CanvasRenderer());
     WebGLAssets.renderer.setSize(sceneSizes.width, sceneSizes.height);
 
     WebGLAssets.sceneElement = this.refs['geometric-shape-animation-div'];
