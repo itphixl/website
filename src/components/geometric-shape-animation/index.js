@@ -73,7 +73,7 @@ export default class GeometricShapeAnimation extends React.Component {
   updateParticles() {
     const {camera, particles} = this.WebGLAssets;
 
-    particles.items.forEach(function(particle) {
+    particles.items.forEach((particle) => {
       particle.position.z += (40 * 0.05);
       camera.rotation.z += 0.00002;
 
