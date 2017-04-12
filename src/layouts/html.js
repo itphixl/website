@@ -6,24 +6,14 @@ export default class HTML extends React.Component {
 
   renderStylesheet() {
     const {bundle} = this.props;
-    var stylesheet = null;
 
-    if (bundle.env === 'production') {
-      stylesheet = (<link rel='stylesheet' href={bundle.stylesheet} />);
-    }
-
-    return stylesheet;
+    return bundle.env === 'production' ? (<link rel='stylesheet' href={bundle.stylesheet} />) : null;
   }
 
   renderCommonsScript() {
     const {bundle} = this.props;
-    var script = null;
 
-    if (bundle.env === 'production') {
-      script = <script src={bundle.commons} />;
-    }
-
-    return script
+    return bundle.env === 'production' ? (<script src={bundle.commons} />) : null;
   }
 
   render() {
