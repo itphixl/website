@@ -132,7 +132,7 @@ const DevWebpackConfig = {
           {
             loader: 'file-loader',
             query: {
-              name: '[path][name].[ext]?[hash:8]'
+              name: '[name].[ext]?[hash:8]'
             }
           }
         ]
@@ -146,6 +146,9 @@ const DevWebpackConfig = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"development"'
+    }),
     new webpack.NamedModulesPlugin()
   ]
 };

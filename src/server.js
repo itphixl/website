@@ -17,7 +17,7 @@ const server = new http.Server(app);
 
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.get('*', (req, res) => {
   const isDev = (process.env.NODE_ENV === 'development');
