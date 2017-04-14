@@ -34,6 +34,53 @@
       @media only screen and (min-width: 768px)
         height 66px
 
+      @media only screen and (min-width: 1200px)
+        height 100px
+
+      .inline-navigation-box
+        display none
+        position fixed
+        top 30px
+        left 30px
+        right 30px
+        height 100px
+        z-index 4 !important
+        overflow hidden !important
+
+        @media only screen and (min-width: 1200px)
+          display block
+
+        .inline-navigation
+          position relative
+          display table !important
+          table-layout !important
+          margin 15px auto 0 auto
+          height 70px
+          background-color rgba(255, 255, 255, 0.9);
+          overflow hidden !important
+
+          .inline-navigation-cell
+            position relative
+            display table-cell !important
+            width auto
+            padding 0 26px
+            height 70px
+            overflow hidden !important
+
+            a
+              line-height 70px
+              font-size 30px
+
+              span
+                color #3d3d3d
+                transition color 200ms linear
+
+                &:hover
+                  color #77fcac
+
+              .is-section
+                color #77fcac
+
       .icon-box
         position absolute
         top 0
@@ -46,7 +93,6 @@
           position fixed
           top 20px
           right 20px
-
           width 40px
           height 40px
           border-radius 50%
@@ -63,6 +109,9 @@
             right 60px
             width 80px
             height 80px
+
+          @media only screen and (min-width: 1200px)
+            display none
 
           .img
             position absolute
@@ -82,6 +131,8 @@
               width 50px
               height 26px
 
+            @media only screen and (min-width: 1200px)
+              display none
 
     .intro
       position relative
@@ -94,6 +145,10 @@
       @media only screen and (min-width: 768px)
         margin-top 40px
         height 512px
+
+      @media only screen and (min-width: 1200px)
+        margin-top 0
+        height 998px
 
       .webgl-box
         position absolute
@@ -129,6 +184,10 @@
             width 356px
             height 72px
 
+          @media only screen and (min-width: 1200px)
+            width 812px
+            height 164px
+
     .work,
     .agency,
     .contact
@@ -144,6 +203,9 @@
         @media only screen and (min-width: 768px)
           font-size 30px
 
+        @media only screen and (min-width: 1200px)
+          font-size 54px
+
       .underline
         position relative
         display block
@@ -153,6 +215,10 @@
 
         @media only screen and (min-width: 768px)
           height 2px
+
+        @media only screen and (min-width: 1200px)
+          margin 16px auto 0 auto
+          height 4px
 
       .description
         position relative
@@ -173,10 +239,17 @@
           line-height 20px
           padding 0 40px
 
+        @media only screen and (min-width: 1200px)
+          margin 80px 0 0 0
+          font-size 34px
+          line-height 36px
+          padding 0 80px
+
     .work
       position relative
       display block
-      width 100%
+      margin 0 auto
+      max-width 1366px
       height auto
       overflow hidden !important
 
@@ -185,6 +258,9 @@
 
         @media only screen and (min-width: 768px)
           width 226px
+
+        @media only screen and (min-width: 1200px)
+          width 396px
 
       .grid
         position relative
@@ -197,16 +273,22 @@
         @media only screen and (min-width: 768px)
           margin-top 56px
 
+        @media only screen and (min-width: 1200px)
+          display none !important
+
     .agency
       position relative
       display block
-      margin-top 28px
-      width 100%
+      margin 28px auto 0 auto
+      max-width 1366px
       height auto
       overflow hidden !important
 
       @media only screen and (min-width: 768px)
         margin-top 46px
+
+      @media only screen and (min-width: 1200px)
+        margin-top 80px
 
       .underline
         width 66px
@@ -214,11 +296,17 @@
         @media only screen and (min-width: 768px)
           width 124px
 
+        @media only screen and (min-width: 1200px)
+          width 224px
+
       .underline.last-underline
         margin-top 10px
 
         @media only screen and (min-width: 768px)
           margin-top 20px
+
+        @media only screen and (min-width: 1200px)
+          margin-top 56px
 
 
       .team
@@ -238,19 +326,25 @@
     .contact
       position relative
       display block
-      margin-top 34px
-      width 100%
+      margin 34px auto 0 auto
+      max-width 1366px
       height auto
       overflow hidden !important
 
       @media only screen and (min-width: 768px)
         margin-top 142px
 
+      @media only screen and (min-width: 1200px)
+        margin-top 192px
+
       .underline
         width 56px
 
         @media only screen and (min-width: 768px)
           width 110px
+
+        @media only screen and (min-width: 1200px)
+          width 190px
 
       .mails
         position relative
@@ -262,6 +356,9 @@
 
         @media only screen and (min-width: 768px)
           margin-top 52px
+
+        @media only screen and (min-width: 1200px)
+          margin-top 104px
 
         .mail-box
           position relative
@@ -284,6 +381,14 @@
             font-size 26px
             line-height 52px
 
+          @media only screen and (min-width: 1200px)
+            width 484px
+            height 106px
+            border solid 4px #77fcac
+            font-size 50px
+            line-height 102px
+
+
       .map
         position relative
         display block
@@ -294,6 +399,9 @@
 
         @media only screen and (min-width: 768px)
           margin-top 84px
+
+        @media only screen and (min-width: 1200px)
+          margin-top 160px
 
         .map-infos,
         .map-illustration
@@ -309,7 +417,10 @@
           @media only screen and (min-width: 768px)
             margin-bottom 22px
 
-          .adress
+          @media only screen and (min-width: 1200px)
+            margin-bottom 26px
+
+          .address
             position relative
             display block
             width 100%
@@ -323,6 +434,10 @@
             @media only screen and (min-width: 768px)
               font-size 16px
               line-height 21px
+
+            @media only screen and (min-width: 1200px)
+              font-size 30px
+              line-height 36px
 
           .gmaps-button
             position relative
@@ -346,6 +461,12 @@
               font-size 14px
               line-height 31px
 
+            @media only screen and (min-width: 1200px)
+              width 252px
+              height 64px
+              font-size 27px
+              line-height 64px
+
     .footer
       position relative
       display block
@@ -357,6 +478,9 @@
 
       @media only screen and (min-width: 768px)
         padding 32px 0 38px
+
+      @media only screen and (min-width: 1200px)
+        padding 78px 0 92px
 
       .instagram-logo
         position relative
@@ -374,6 +498,10 @@
           width 46px
           height 46px
 
+        @media only screen and (min-width: 1200px)
+          width 118px
+          height 118px
+
       .legal-notice-box
         position relative
         display table
@@ -384,9 +512,16 @@
         @media only screen and (min-width: 768px)
           margin 26px auto 0 auto
 
+        @media only screen and (min-width: 1200px)
+          margin 70px auto 0 auto
+
         span
           color #ffffff
           font-size 8px
 
           @media only screen and (min-width: 768px)
             font-size 15px
+
+          @media only screen and (min-width: 1200px)
+            font-size 34px
+            line-height 42px

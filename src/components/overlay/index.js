@@ -21,6 +21,12 @@ import overlayBackToTopButton           from '../../assets/images/overlay-back-t
 
 export default class Overlay extends React.Component {
 
+  goBack() {
+    const {history} = this.props;
+
+    history.goBack();
+  }
+
   backToTopButtonDidClicked() {
     this.refs['overlay-container-div'].scrollTop = 0;
   }
@@ -52,9 +58,8 @@ export default class Overlay extends React.Component {
                 style={{
                   backgroundImage: `url(${overlayCloseButton})`
                 }}
-              >
-                <Link to={links.work} />
-              </div>
+                onClick={(e) =>{e.preventDefault(); this.goBack()}}
+              />
             </div>
           </header>
 
@@ -105,5 +110,6 @@ export default class Overlay extends React.Component {
 }
 
 Overlay.propTypes = {
-  target: PropTypes.objectOf(PropTypes.string)
+  history: PropTypes.object.isRequired,
+  target: PropTypes.objectOf(PropTypes.string).isRequired
 }

@@ -97,10 +97,11 @@ export default class App extends React.Component {
                 <NoMatch />
                )
             )} />
-            <Route exact path={`${match.url}:targetname/:targetid`} render={({match}) => (
+            <Route exact path={`${match.url}:targetname/:targetid`} render={({match, history}) => (
               (
                 targets.indexOf(match.params.targetname) !== -1 ?
                 <Overlay
+                  history={history}
                   target={{name: match.params.targetname, id: match.params.targetid}}
                 /> :
                 <NoMatch />

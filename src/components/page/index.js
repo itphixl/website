@@ -87,6 +87,7 @@ export default class Page extends React.Component {
 
   render() {
     const {deviceType} = this.state;
+    const {section} = this.props;
 
     return (
       <div className='page-container' ref='page-container-div'>
@@ -106,6 +107,34 @@ export default class Page extends React.Component {
                   }}
                 />
               </a>
+            </div>
+
+            <div className='inline-navigation-box'>
+              <div className='inline-navigation'>
+                <div className='inline-navigation-cell'>
+                  <Link to={links.home}>
+                    <span className={classnames({'is-section': section === 'intro'})}>{'Accueil'}</span>
+                  </Link>
+                </div>
+
+                <div className='inline-navigation-cell'>
+                  <Link to={links.work}>
+                    <span className={classnames({'is-section': section === 'work'})}>{'Nos réalisations'}</span>
+                  </Link>
+                </div>
+
+                <div className='inline-navigation-cell'>
+                  <Link to={links.agency}>
+                    <span className={classnames({'is-section': section === 'agency'})}>{'L\'agence'}</span>
+                  </Link>
+                </div>
+
+                <div className='inline-navigation-cell'>
+                  <Link to={links.contact}>
+                    <span className={classnames({'is-section': section === 'contact'})}>{'Contact'}</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </header>
 
@@ -137,7 +166,6 @@ export default class Page extends React.Component {
             </p>
 
             <div className='grid'>
-              {/*TODO: develop function for select the good number by in function of the screen*/}
               <ProjectsGrid
                 projects={projects}
                 numberByRow={2}
@@ -212,7 +240,7 @@ export default class Page extends React.Component {
                 <Grid>
                   <Row middle='xs'>
                     <Col xs={8} sm={8} md={8} lg={8}>
-                      <span className={classnames('adress', 'Roboto-Regular')}>
+                      <span className={classnames('address', 'Roboto-Regular')}>
                         {'34 rue Périer, 92120 Montrouge - France'}
                       </span>
                     </Col>

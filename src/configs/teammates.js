@@ -17,8 +17,8 @@ const teammates = [
       height: 52
     },
     nameBrandSizesDesktop: {
-      width: 0,
-      height: 0
+      width: 240,
+      height: 64
     },
     job: 'Directeur associé',
     tagline: 'Excepté une fois au chalêt',
@@ -36,8 +36,8 @@ const teammates = [
       height: 52
     },
     nameBrandSizesDesktop: {
-      width: 0,
-      height: 0
+      width: 280,
+      height: 66
     },
     job: 'Directeur associé',
     tagline: 'Excepté une fois au chalêt',
@@ -55,8 +55,8 @@ const teammates = [
       height: 52
     },
     nameBrandSizesDesktop: {
-      width: 0,
-      height: 0
+      width: 332,
+      height: 66
     },
     job: 'Lead Developer',
     tagline: 'Earth is everything',
@@ -74,8 +74,8 @@ const teammates = [
       height: 36
     },
     nameBrandSizesDesktop: {
-      width: 0,
-      height: 0
+      width: 112,
+      height: 46
     },
     job: 'Lead Designer',
     tagline: 'Bear and love',
