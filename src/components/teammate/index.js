@@ -42,11 +42,11 @@ export default class Teammate extends React.Component {
           }}
         />
 
-        <h3 className={classnames('job', 'Roboto-Bold')}>
+        <h3 className={classnames('job', 'Nexa-Bold')}>
           {job}
         </h3>
 
-        <span className={classnames('tagline', 'Roboto-Regular')}>
+        <span className={classnames('tagline', 'Nexa-Light')}>
           {tagline}
         </span>
 

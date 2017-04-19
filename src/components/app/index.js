@@ -66,10 +66,9 @@ export default class App extends React.Component {
   }
 
   render() {
-    const {match} = this.props;
+    const {match, location} = this.props;
     const {state} = this;
-
-    const {location} = this.props
+    
     const isModal = !!(
        location.state &&
        location.state.modal &&
