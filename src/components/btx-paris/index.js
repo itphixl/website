@@ -20,6 +20,11 @@ import BTXParisThirdScreen              from '../../assets/images/btx-paris-thir
 import BTXParisFourthScreen             from '../../assets/images/btx-paris-fourth-screen.png';
 
 export default class BTXParis extends React.Component {
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     const {projectLink, projectColor} = this.props;
 

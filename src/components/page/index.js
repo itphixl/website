@@ -6,13 +6,18 @@
 import classnames                       from 'classnames';
 
 import React                            from 'react';
+import {findDOMNode}                    from 'react-dom';
 import PropTypes                        from 'prop-types';
 
 import {Link}                           from 'react-router-dom';
 import {Grid, Row, Col}                 from 'react-flexbox-grid';
 
+import {TweenLite, Power1}              from 'gsap';
+import ScrollToPlugin                   from 'gsap/ScrollToPlugin';
+
 import GeometricShapeAnimation          from '../geometric-shape-animation';
 import ProjectsGrid                     from '../projects-grid';
+import ProjectsSlider                   from '../projects-slider';
 import Teammate                         from '../teammate';
 
 import stylesheet                       from './stylesheet.styl';
@@ -37,7 +42,14 @@ export default class Page extends React.Component {
     const element = this.refs[section];
     const scrollTop = section === 'intro' ? 0 : element.offsetTop;
 
-    this.refs['page-container-div'].scrollTop = scrollTop;
+    const pageContainerDiv = findDOMNode(this.refs['page-container-div']);
+
+    TweenLite.to(pageContainerDiv, 0.8, {
+      scrollTo: {
+        y: this.state.deviceType === 'Desktop' ? (scrollTop - 160) : scrollTop
+      },
+      ease: Power1.easeInOut
+    });
   }
 
   setDeviceType() {
@@ -60,10 +72,11 @@ export default class Page extends React.Component {
   }
 
   componentWillMount() {
-    this.setDeviceType();
+
   }
 
   componentDidMount() {
+    this.setDeviceType();
     window.addEventListener('resize', (e) => {this.windowDidResized()}, false);
 
     this.setScrolltop();
@@ -165,12 +178,23 @@ export default class Page extends React.Component {
               {'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.through the cites of the word in classical literature, discovered the undoubtable source.'}
             </p>
 
-            <div className='grid'>
-              <ProjectsGrid
-                projects={projects}
-                numberByRow={2}
-                baseRoute='/project'
-              />
+            <div className='projects'>
+              {
+                deviceType === 'Desktop' ?
+                (
+                  <ProjectsSlider
+                    projects={projects}
+                    baseRoute='/project'
+                  />
+                ) :
+                (
+                  <ProjectsGrid
+                    projects={projects}
+                    numberByRow={2}
+                    baseRoute='/project'
+                  />
+                )
+              }
             </div>
           </section>
 

@@ -7,10 +7,16 @@ import classnames                       from 'classnames';
 import _                                from 'lodash';
 
 import React                            from 'react';
+import {findDOMNode}                    from 'react-dom';
 import PropTypes                        from 'prop-types';
 
 import {Link}                           from 'react-router-dom';
 import {Grid, Row, Col}                 from 'react-flexbox-grid';
+
+import {TweenMax, Power1}               from 'gsap';
+import ScrollToPlugin                   from 'gsap/ScrollToPlugin';
+
+import * as dynamics                    from 'dynamics.js/lib/dynamics';
 
 import stylesheet                       from './stylesheet.styl';
 
@@ -21,18 +27,89 @@ import overlayBackToTopButton           from '../../assets/images/overlay-back-t
 
 export default class Overlay extends React.Component {
 
-  goBack() {
-    const {history} = this.props;
+  constructor(props) {
+    super(props);
+  }
 
-    history.goBack();
+  goBack() {
+    const {history, isModal} = this.props;
+
+    if (isModal) {
+      const overlayContainerDiv = findDOMNode(this.refs['overlay-container-div']);
+      const overlayMaskDiv = findDOMNode(this.refs['overlay-mask-div']);
+
+      dynamics.css(overlayMaskDiv, {opacity: 0, visibility: 'visible'});
+      dynamics.animate(overlayMaskDiv, {
+        opacity: 1
+      }, {
+        duration: 200,
+        type: dynamics.easeInOut,
+        complete: () => {
+          dynamics.animate(overlayContainerDiv, {
+            scale: 0
+          }, {
+            duration: 500,
+            type: dynamics.easeInOut,
+            complete: () => {
+              history.goBack();
+            }
+          });
+        }
+      });
+    }
+    else {
+      history.push('/');
+    }
   }
 
   backToTopButtonDidClicked() {
-    this.refs['overlay-container-div'].scrollTop = 0;
+    const overlayContainerDiv = findDOMNode(this.refs['overlay-container-div']);
+
+    TweenMax.to(overlayContainerDiv, 0.8, {
+      scrollTo: {y: 0},
+      ease: Power1.easeInOut
+    });
+  }
+
+  enterAnimation() {
+    const overlayContainerDiv = findDOMNode(this.refs['overlay-container-div']);
+    const overlayMaskDiv = findDOMNode(this.refs['overlay-mask-div']);
+
+    dynamics.animate(overlayContainerDiv, {
+      scale: 1
+    }, {
+      duration: 500,
+      type: dynamics.easeInOut,
+      complete: () => {
+        dynamics.animate(overlayMaskDiv, {
+          opacity: 0
+        }, {
+          duration: 200,
+          type: dynamics.easeInOut,
+          complete: () => {
+            dynamics.css(overlayMaskDiv, {visibility: 'hidden'});
+          }
+        })
+      }
+    });
+  }
+
+  componentDidMount() {
+    const {isModal} = this.props;
+
+    if (isModal) {
+      this.enterAnimation();
+    }
+  }
+
+  shouldComponentUpdate() {
+    return false;
   }
 
   render() {
-    const {name, id} = this.props.target;
+    const {match, isModal} = this.props;
+    const id = match.params.id;
+
     const {component: ContentComponent, color, link} = _.find(projects, (p) => {return p.id === id});
 
     const index = _.findIndex(projects, (p) => {return p.id === id});
@@ -44,7 +121,13 @@ export default class Overlay extends React.Component {
     const {id: prevProjectId} = projects[prevIndex];
 
     return (
-      <div className='overlay-container' ref='overlay-container-div'>
+      <div
+        className={classnames({
+          'overlay-container': true,
+          'overlay-container-scale-0': isModal
+        })}
+        ref='overlay-container-div'
+      >
         <div
           className='overlay'
           style={{
@@ -72,14 +155,14 @@ export default class Overlay extends React.Component {
             <div className='gallery-navigation-box'>
               <div className='global-navigation-container'>
                 <div className='gallery-navigation-content'>
-                  <Link to={`/${name}/${prevProjectId}`}>
+                  <Link to={`/project/${prevProjectId}`}>
                     <span className={classnames('Roboto-Regular', 'gallery-navigation-link-left')}>
                       {'Projet précédent'}
                     </span>
                   </Link>
                 </div>
                 <div className='gallery-navigation-content'>
-                  <Link to={`/${name}/${nextProjectId}`}>
+                  <Link to={`/project/${nextProjectId}`}>
                     <span className={classnames('Roboto-Regular', 'gallery-navigation-link-right')}>
                       {'Projet suivant'}
                     </span>
@@ -104,12 +187,24 @@ export default class Overlay extends React.Component {
             </div>
           </footer>
         </div>
+        {isModal ? (
+          <div
+            className='overlay-mask'
+            ref='overlay-mask-div'
+            style={{
+              backgroundColor: color
+            }}
+          />
+        ) : null}
       </div>
-    )
+    );
   }
 }
 
 Overlay.propTypes = {
-  history: PropTypes.object.isRequired,
-  target: PropTypes.objectOf(PropTypes.string).isRequired
-}
+  isModal: PropTypes.bool
+};
+
+Overlay.defaultProps = {
+  isModal: true
+};

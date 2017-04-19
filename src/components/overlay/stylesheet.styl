@@ -3,16 +3,29 @@
 * author: Aurélien Dupays-Dexemple
 */
 
+.overlay-container-scale-0
+  transform scaleX(0) scaleY(0)
+
 .overlay-container
   position absolute
   top 0
   left 0
   bottom 0
   right 0
+  margin auto
   z-index 9999 !important
   background-color #ffffff
+  -webkit-transform-origin 50% 50%
   overflow-x hidden !important
   overflow-y auto !important
+
+  .overlay-mask
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    right 0
+    overflow hidden !important
 
   .overlay
     position relative

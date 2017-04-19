@@ -18,7 +18,7 @@ import normalize                        from './normalize.css';
 import presets                          from './presets.css';
 import stylesheet                       from './stylesheet.styl';
 
-import {sections, targets}              from '../../configs';
+import {sections}                       from '../../configs';
 
 export default class App extends React.Component {
 
@@ -28,6 +28,8 @@ export default class App extends React.Component {
       navigationIsOpen: false,
       navigationCloseFromButton: false
     };
+
+    this.previousLocation = props.location;
   }
 
   openNavigation(isOpen) {
@@ -55,9 +57,24 @@ export default class App extends React.Component {
     return window.innerWidth < 1200 ? window.innerWidth * 0.5 : window.innerWidth * 0.3;
   }
 
+  componentWillUpdate(nextProps) {
+    const {location} = this.props;
+
+    if (nextProps.history.action !== 'POP' && (!location.state || !location.state.modal)) {
+      this.previousLocation = this.props.location;
+    }
+  }
+
   render() {
     const {match} = this.props;
     const {state} = this;
+
+    const {location} = this.props
+    const isModal = !!(
+       location.state &&
+       location.state.modal &&
+       this.previousLocation !== location
+     );
 
     return (
       <Sidebar
@@ -67,7 +84,7 @@ export default class App extends React.Component {
           />
         )}
         open={state.navigationIsOpen}
-        onSetOpen={(open) => {this.onSetSidebarOpen(open)}}
+        onSetOpen={(open) => {this.onSetSidebarOpen(open)}}s
         pullRight
         styles={{
           root: {backgroundColor: '#3d3d3d'},
@@ -76,7 +93,7 @@ export default class App extends React.Component {
         }}
       >
         <div className='app-container'>
-          <Switch>
+          <Switch location={isModal ? this.previousLocation : location}>
             <Route exact path={match.url} render={() => (
               <Page
                 section='intro'
@@ -89,7 +106,7 @@ export default class App extends React.Component {
               (
                 sections.indexOf(match.params.section) !== -1 ?
                 <Page
-                  section={match.params.section}
+                  section={match.params.section }
                   navigationIsOpen={state.navigationIsOpen}
                   navigationCloseFromButton={state.navigationCloseFromButton}
                   openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}}
@@ -97,17 +114,12 @@ export default class App extends React.Component {
                 <NoMatch />
                )
             )} />
-            <Route exact path={`${match.url}:targetname/:targetid`} render={({match, history}) => (
-              (
-                targets.indexOf(match.params.targetname) !== -1 ?
-                <Overlay
-                  history={history}
-                  target={{name: match.params.targetname, id: match.params.targetid}}
-                /> :
-                <NoMatch />
-              )
-            )} />
+            <Route path={`${match.url}project/:id`} render={(props) => (
+              <Overlay isModal={false} {...props} />
+            )}/>
+            <Route component={NoMatch} />
           </Switch>
+          {isModal ? <Route path={`${match.url}project/:id`} component={Overlay} /> : null}
         </div>
       </Sidebar>
     );
