@@ -39,7 +39,7 @@
       }
     },
     "prod:static": {
-      "command": "webpack --progress --config ./webpack/dev.static.js",
+      "command": "webpack --progress --config ./webpack/prod.static.js",
       "env": {
         "NODE_PATH": "./webpack",
         "NODE_ENV": "development"

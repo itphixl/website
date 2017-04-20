@@ -46,7 +46,7 @@ export default class Page extends React.Component {
 
     TweenLite.to(pageContainerDiv, 0.8, {
       scrollTo: {
-        y: this.state.deviceType === 'Desktop' ? (scrollTop - 20) : scrollTop
+        y: (scrollTop === 0 ? 0 : scrollTop - 20)
       },
       ease: Power1.easeInOut
     });
@@ -69,10 +69,6 @@ export default class Page extends React.Component {
   componentDidUpdate() {
     this.setScrolltop();
     this.props.openNavigationAction(false);
-  }
-
-  componentWillMount() {
-
   }
 
   componentDidMount() {
@@ -246,12 +242,12 @@ export default class Page extends React.Component {
               <Grid fluid>
                 <Row>
                   <Col xs={6} sm={6} md={6} lg={6}>
-                    <span className={classnames('mail-box', 'Roboto-Regular')}>
+                    <span className={classnames('mail-box', 'Nexa-Light')}>
                       {'josue[at]phixl.fr'}
                     </span>
                   </Col>
                   <Col xs={6} sm={6} md={6} lg={6}>
-                    <span className={classnames('mail-box', 'Roboto-Regular')}>
+                    <span className={classnames('mail-box', 'Nexa-Light')}>
                       {'jerome[at]phixl.fr'}
                     </span>
                   </Col>
@@ -264,7 +260,7 @@ export default class Page extends React.Component {
                 <Grid>
                   <Row middle='xs'>
                     <Col xs={8} sm={8} md={8} lg={8}>
-                      <span className={classnames('address', 'Roboto-Regular')}>
+                      <span className={classnames('address', 'Nexa-Light')}>
                         {'34 rue Périer, 92120 Montrouge - France'}
                       </span>
                     </Col>
