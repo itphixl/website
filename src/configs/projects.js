@@ -24,7 +24,7 @@ const projects = [
     name: 'Love for Livres',
     type: 'Webdesign, Branding',
     cover: loveforlivresCover,
-    color: '',
+    color: '#00aeeb',
     link: '',
     component: Loveforlivres
   },

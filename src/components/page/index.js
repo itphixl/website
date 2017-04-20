@@ -46,7 +46,7 @@ export default class Page extends React.Component {
 
     TweenLite.to(pageContainerDiv, 0.8, {
       scrollTo: {
-        y: this.state.deviceType === 'Desktop' ? (scrollTop - 160) : scrollTop
+        y: this.state.deviceType === 'Desktop' ? (scrollTop - 20) : scrollTop
       },
       ease: Power1.easeInOut
     });

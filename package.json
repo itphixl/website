@@ -21,7 +21,7 @@
     "dev:start": "concurrently --kill-others \"npm run dev:webpack-server\" \"npm run dev:server\" ",
     "dev:webpack-server": "better-npm-run dev:webpack-server",
     "dev:server": "better-npm-run dev:server",
-    "dev:static": "better-npm-run dev:static"
+    "prod:static": "better-npm-run prod:static"
   },
   "betterScripts": {
     "dev:webpack-server": {
@@ -38,7 +38,7 @@
         "NODE_ENV": "development"
       }
     },
-    "dev:static": {
+    "prod:static": {
       "command": "webpack --progress --config ./webpack/dev.static.js",
       "env": {
         "NODE_PATH": "./webpack",

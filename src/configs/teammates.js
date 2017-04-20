@@ -22,7 +22,7 @@ const teammates = [
     },
     job: 'Directeur associé',
     tagline: 'Excepté une fois au chalêt',
-    linkedinLink: ''
+    linkedinLink: 'https://www.linkedin.com/in/josuebinet/'
   },
   {
     shape: '',
@@ -41,7 +41,7 @@ const teammates = [
     },
     job: 'Directeur associé',
     tagline: 'Excepté une fois au chalêt',
-    linkedinLink: ''
+    linkedinLink: 'https://www.linkedin.com/in/j%C3%A9r%C3%B4me-bouthier-65179748/'
   },
   {
     shape: '',
@@ -60,7 +60,7 @@ const teammates = [
     },
     job: 'Lead Developer',
     tagline: 'Earth is everything',
-    linkedinLink: ''
+    linkedinLink: 'https://www.linkedin.com/in/aureliendupaysdexemple/'
   },
   {
     shape: '',
