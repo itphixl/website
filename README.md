@@ -31,6 +31,18 @@ To deploy the project make the command
 sudo npm run prod:init
 ```
 
+### Static Deployement
+To deploy the project in static production make the command
+
+```
+sudo npm run prod:static:init
+```
+
+Notes :
+* static index is in ./src/assets/static/index.html
+* if you change some webpack configurations make sure you have the rights scripts calls in the static index
+* always make changes in the static index (./src/assets/static/index.html)
+
 ## Version
 14.6.0
 
