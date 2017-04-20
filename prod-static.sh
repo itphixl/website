@@ -7,7 +7,7 @@ staticDirectoryPath=./static
 
 staticBuildDirectoryName="build"
 
-assetIndexFilePath=./src/assets/index.html
+assetIndexFilePath=./src/assets/static/index.html
 
 echo "Starting static production ......"
 
