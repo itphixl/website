@@ -25,7 +25,7 @@ const projects = [
     type: 'Webdesign, Branding',
     cover: loveforlivresCover,
     color: '#00aeeb',
-    link: '',
+    link: 'http://loveforlivres.com/',
     component: Loveforlivres
   },
   {
@@ -33,8 +33,8 @@ const projects = [
     name: 'Occabike',
     type: 'Webdesign',
     cover: occabikeCover,
-    color: '',
-    link: '',
+    color: '#adc318',
+    link: 'http://occabike.fr/',
     component: Occabike
   },
   {

@@ -102,8 +102,9 @@ export default class Overlay extends React.Component {
     }
   }
 
-  shouldComponentUpdate() {
-    return false;
+  shouldComponentUpdate(nextProps) {
+    const {match} = nextProps;
+    return match.params.id !== this.props.match.params.id;
   }
 
   render() {

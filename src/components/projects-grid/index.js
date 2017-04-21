@@ -29,7 +29,14 @@ export default class ProjectsGrid extends React.Component {
             <div className='filter' />
 
             <div className='infos-box'>
-              <Link to={`${baseRoute}/${project.id}`}>
+              <Link
+                to={{
+                  pathname: `${baseRoute}/${project.id}`,
+                  state: {
+                    modal: true
+                  }
+                }}
+              >
                 <div className='infos-container'>
                   <div className='infos-content'>
 
