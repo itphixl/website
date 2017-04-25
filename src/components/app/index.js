@@ -68,7 +68,7 @@ export default class App extends React.Component {
   render() {
     const {match, location} = this.props;
     const {state} = this;
-    
+
     const isModal = !!(
        location.state &&
        location.state.modal &&
@@ -101,7 +101,7 @@ export default class App extends React.Component {
                 openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}}
               />
             )} />
-            <Route exact path={`${match.url}:section`} render={({match}) => (
+            <Route exact path={`${match.url}:section`} render={({match, props}) => (
               (
                 sections.indexOf(match.params.section) !== -1 ?
                 <Page
@@ -110,13 +110,15 @@ export default class App extends React.Component {
                   navigationCloseFromButton={state.navigationCloseFromButton}
                   openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}}
                 /> :
-                <NoMatch />
+                <NoMatch openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}} {...props} />
                )
             )} />
             <Route path={`${match.url}project/:id`} render={(props) => (
               <Overlay isModal={false} {...props} />
             )}/>
-            <Route component={NoMatch} />
+            <Route render={(props) => (
+              <NoMatch openNavigationAction={(isOpen) => {this.openNavigation(isOpen)}} {...props} />
+            )} />
           </Switch>
           {isModal ? <Route path={`${match.url}project/:id`} component={Overlay} /> : null}
         </div>

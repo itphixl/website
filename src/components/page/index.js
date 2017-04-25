@@ -24,6 +24,7 @@ import stylesheet                       from './stylesheet.styl';
 
 import phixlLogo                        from '../../assets/images/phixl-logo.png';
 import burgerIcon                       from '../../assets/images/burger-icon.png';
+import locationMap                      from '../../assets/images/location-map.png';
 import instagramLogo                    from '../../assets/images/instagram-logo.png';
 
 import {teammates, projects, links}     from '../../configs';
@@ -277,6 +278,10 @@ export default class Page extends React.Component {
                 </Grid>
               </div>
               <div className='map-illustration'>
+                <img
+                  className='map-img'
+                  src={locationMap}
+                />
               </div>
             </div>
           </section>
@@ -296,7 +301,6 @@ export default class Page extends React.Component {
                 <span className='Roboto-Regular'>{'Mentions légales'}</span>
               </Link>
             </div>
-
           </footer>
         </div>
       </div>

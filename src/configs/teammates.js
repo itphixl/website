@@ -4,9 +4,14 @@ import nameBrandJerome                  from '../assets/images/name-brand-jerome
 import nameBrandAurelien                from '../assets/images/name-brand-aurelien.png';
 import nameBrandJb                      from '../assets/images/name-brand-jb.png';
 
+import nameShapeJosue                   from '../assets/images/name-shape-josue.png';
+import nameShapeJerome                  from '../assets/images/name-shape-jerome.png';
+import nameShapeAurelien                from '../assets/images/name-shape-aurelien.png';
+import nameShapeJb                      from '../assets/images/name-shape-jb.png';
+
 const teammates = [
   {
-    shape: '',
+    shape: nameShapeJosue,
     nameBrandSrc: nameBrandJosue,
     nameBrandSizesSmartphone: {
       width: 84,
@@ -25,7 +30,7 @@ const teammates = [
     linkedinLink: 'https://www.linkedin.com/in/josuebinet/'
   },
   {
-    shape: '',
+    shape: nameShapeJerome,
     nameBrandSrc: nameBrandJerome,
     nameBrandSizesSmartphone: {
       width: 97,
@@ -44,7 +49,7 @@ const teammates = [
     linkedinLink: 'https://www.linkedin.com/in/j%C3%A9r%C3%B4me-bouthier-65179748/'
   },
   {
-    shape: '',
+    shape: nameShapeAurelien,
     nameBrandSrc: nameBrandAurelien,
     nameBrandSizesSmartphone: {
       width: 116,
@@ -63,7 +68,7 @@ const teammates = [
     linkedinLink: 'https://www.linkedin.com/in/aureliendupaysdexemple/'
   },
   {
-    shape: '',
+    shape: nameShapeJb,
     nameBrandSrc: nameBrandJb,
     nameBrandSizesSmartphone: {
       width: 39,

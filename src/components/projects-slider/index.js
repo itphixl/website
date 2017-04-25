@@ -17,7 +17,6 @@ import * as dynamics                    from 'dynamics.js/lib/dynamics';
 import stylesheet                       from './stylesheet.styl';
 
 import ProjectsSlidershapes             from '../../assets/images/projects-slider-shapes.png';
-import ProjectsSliderLaptopMockup       from '../../assets/images/projects-slider-laptop-mockup.png';
 import ProjectsSliderLeftNavControl     from '../../assets/images/projects-slider-left-navigation-control.png';
 import ProjectsSliderRightNavControl    from '../../assets/images/projects-slider-right-navigation-control.png';
 
@@ -157,16 +156,9 @@ export default class ProjectsSlider extends React.Component {
                         <div
                           className='mockup-laptop'
                           style={{
-                            backgroundImage: `url(${ProjectsSliderLaptopMockup})`
+                            backgroundImage: `url(${project.mockup})`
                           }}
-                        >
-                          <div
-                            className='project-cover'
-                            style={{
-                              backgroundImage: `url(${project.cover})`
-                            }}
-                          />
-                        </div>
+                        />
                       </Link>
                     </div>
 
