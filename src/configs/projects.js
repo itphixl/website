@@ -42,7 +42,7 @@ const projects = [
     name: 'CGF | Future Leaders Programme',
     type: 'Print, Branding',
     cover: cgfFLPCover,
-    color: '',
+    color: '#eb0764',
     link: '',
     component: CGFFLP
   }
