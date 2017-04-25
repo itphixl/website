@@ -15,7 +15,6 @@ console.log('Welcome to PhiXL source code !!');
 const mountNode = document.getElementById('react-view-root');
 
 const renderClient = (Component) => {
-  console.log('render client');
   ReactDOM.render(
     <ReactHotLoaderContainer>
       <Component />
