@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 
   const bundle = {
     env: process.env.NODE_ENV,
-    core: (isDev ? `http://${webpackHost}:${webpackPort}/build/main.bundle.js` : '/build/main.bundle.min.js'),
+    core: (isDev ? `http://${webpackHost}:${webpackPort}/build/main.bundle.js` : '/build/main.bundle.js'),
     commons: '/build/commons.bundle.js',
     stylesheet:  '/build/main.bundle.css'
   };

@@ -13,7 +13,7 @@ var ProdWebpackConfig = {
   },
 
   output: {
-    path: path.resolve(__dirname, '../static/build'),
+    path: path.resolve(__dirname, '../public/build'),
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     publicPath: '/build/'

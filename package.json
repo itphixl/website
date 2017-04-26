@@ -21,6 +21,9 @@
     "dev:start": "concurrently --kill-others \"npm run dev:webpack-server\" \"npm run dev:server\" ",
     "dev:webpack-server": "better-npm-run dev:webpack-server",
     "dev:server": "better-npm-run dev:server",
+    "prod:init": "npm run prod:build && npm run prod:server",
+    "prod:build": "better-npm-run prod:build",
+    "prod:server": "better-npm-run prod:server",
     "prod:static:init": "bash prod-static.sh",
     "prod:static:build": "better-npm-run prod:static:build"
   },
@@ -37,6 +40,20 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "development"
+      }
+    },
+    "prod:build": {
+      "command": "webpack --progress --config ./webpack/prod.config.js",
+      "env": {
+        "NODE_PATH": "./webpack",
+        "NODE_ENV": "production"
+      }
+    },
+    "prod:server": {
+      "command": "nodemon ./src/server.js --exec babel-node",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production"
       }
     },
     "prod:static:build": {
