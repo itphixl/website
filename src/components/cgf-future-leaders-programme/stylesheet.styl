@@ -284,23 +284,33 @@
         .text
           color #ffffff !important
 
-      .second-screen
+      .second-screen-img-container
         position relative
         margin 12px auto 0 auto
         display block
         width 100%
         height auto
-        overflow hidden !important
-
-        &:focus
-          outline 0 !important
+        background-color #ffffff !important
 
         @media only screen and (min-width: 768px)
           margin 94px auto 0 auto
 
         @media only screen and (min-width: 1200px)
           margin 132px auto 0 auto
-          width 1336px
+
+        .second-screen
+          position relative
+          margin 0 auto
+          display block
+          width 100%
+          height auto
+          overflow hidden !important
+
+          &:focus
+            outline 0 !important
+
+          @media only screen and (min-width: 1200px)
+            width 1336px
 
     .third-screen-box
       position relative

@@ -95,10 +95,12 @@ export default class CGFFLP extends React.Component {
               </span>
             </div>
 
-            <img
-              src={CGFGlobalSummitSecondScreen}
-              className='second-screen'
-            />
+            <div className='second-screen-img-container'>
+              <img
+                src={CGFGlobalSummitSecondScreen}
+                className='second-screen'
+              />
+            </div>
           </div>
 
           <div className='third-screen-box'>
