@@ -94,6 +94,12 @@ export default class Overlay extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    const overlayContainerDiv = findDOMNode(this.refs['overlay-container-div']);
+
+    overlayContainerDiv.scrollTop = 0;
+  }
+
   componentDidMount() {
     const {isModal} = this.props;
 
