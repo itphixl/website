@@ -118,12 +118,12 @@ const DevWebpackConfig = {
               limit: 35000
             }
           },
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              progressive: true
-            }
-          }
+          // {
+          //   loader: 'image-webpack-loader',
+          //   query: {
+          //     progressive: true
+          //   }
+          // }
         ]
       },
       {
