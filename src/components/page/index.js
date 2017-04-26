@@ -99,6 +99,15 @@ export default class Page extends React.Component {
     const {deviceType} = this.state;
     const {section} = this.props;
 
+    var introHeight = 274;
+
+    if (deviceType === 'Tablet') {
+      introHeight = 512;
+    }
+    else if (deviceType === 'Desktop') {
+      introHeight = window.innerHeight - (130 + 30);
+    }
+
     return (
       <div className='page-container' ref='page-container-div'>
         <div className='page' ref='page-div'>
@@ -118,37 +127,9 @@ export default class Page extends React.Component {
                 />
               </a>
             </div>
-
-            <div className='inline-navigation-box'>
-              <div className='inline-navigation'>
-                <div className='inline-navigation-cell'>
-                  <Link to={links.home}>
-                    <span className={classnames({'is-section': section === 'intro'})}>{'Accueil'}</span>
-                  </Link>
-                </div>
-
-                <div className='inline-navigation-cell'>
-                  <Link to={links.work}>
-                    <span className={classnames({'is-section': section === 'work'})}>{'Nos réalisations'}</span>
-                  </Link>
-                </div>
-
-                <div className='inline-navigation-cell'>
-                  <Link to={links.agency}>
-                    <span className={classnames({'is-section': section === 'agency'})}>{'L\'agence'}</span>
-                  </Link>
-                </div>
-
-                <div className='inline-navigation-cell'>
-                  <Link to={links.contact}>
-                    <span className={classnames({'is-section': section === 'contact'})}>{'Contact'}</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
           </header>
 
-          <section className='intro' ref='intro'>
+          <section className='intro' ref='intro' style={{height: introHeight}}>
             <div className='webgl-box'>
               <GeometricShapeAnimation
                 deviceType={deviceType}

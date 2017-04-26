@@ -49,7 +49,7 @@ export default class GeometricShapeAnimation extends React.Component {
       },
       Desktop: {
         width: window.innerWidth - (30 * 2),
-        height: 998
+        height: window.innerHeight - (130 + 30)
       }
     }
   }
